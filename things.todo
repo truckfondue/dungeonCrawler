@@ -1,0 +1,10 @@
+ ☐ Build 4 rooms (arrays, known as plans, that represent the contents of the rooms contents and boundaries)
+  ☐ Create gui
+  
+
+  ☐ Write an inspect method that allows the Player to 'inspect' the contents of the room
+
+
+ ☐ Give Player 'pickup', 'fight', 'use'
+
+ ☐ 
