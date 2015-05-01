@@ -1,11 +1,94 @@
 $(document).on('ready', function() {
-  
+ 
+// keybindings
+
+  Mousetrap.bind('?', function() { alert('keyboard shortcuts'); });
+  Mousetrap.bind('right', function() { 
+    // alert('room 1'); 
+    if ( $('.current').hasClass('central') === true ) {
+      $('.current').removeClass('current').addClass('hide');
+      $('.room-1').removeClass('hide').addClass('current');
+    }
+    else if ( $('.current').hasClass('room-3') === true ) {
+      $('.current').removeClass('current').addClass('hide');
+      $('.central').removeClass('hide').addClass('current');
+    }
+    });
+  Mousetrap.bind('left', function() { 
+      if ( $('.current').hasClass('room-1') === true ) {
+        $('.current').removeClass('current').addClass('hide');
+        $('.central').removeClass('hide').addClass('current');
+      }
+      else if ( $('.current').hasClass('central') === true ){
+        $('.current').removeClass('current').addClass('hide');
+        $('.room-3').removeClass('hide').addClass('current');
+      }
+
+    });
+   
+  Mousetrap.bind('up', function() {
+      if ( $('.current').hasClass('room-2') === true ) {
+        $('.current').removeClass('current').addClass('hide');
+        $('.central').removeClass('hide').addClass('current');
+
+      }
+      else if ( $('.current').hasClass('central') === true ) {
+        $('.current').removeClass('start').addClass('hide');
+        $('.room-4').removeClass('hide').addClass('current');
+      }
+    });
+  Mousetrap.bind('down', function() {  
+      if ( $('.current').hasClass('room-4') === true ) {
+        $('.current').removeClass('current').addClass('hide');
+        $('.central').removeClass('hide').addClass('current');
+      }
+      else if ( $('.current').hasClass('central') === true ) {
+        $('.current').removeClass('current').addClass('hide');
+        $('.room-2').removeClass('hide').addClass('current');
+      }
+    });
+  Mousetrap.bind('c', function() {  
+    alert('central'); 
+    $('.current').removeClass('current').addClass('hide');
+    $('.central').removeClass('hide').addClass('current');
+    });
+
+
+ 
+$('#play').on('click', function(){
+      // alert('ready to play?');
+      $('#play').addClass('hide');
+        // .attr('id', null);
+      $('.central').removeClass('hide')
+        .addClass('current');
+        // .appendTo('#play');
+        console.log('working');
+       // user.push( new  Player((playerName.toLowerCase()), "sticks", 1000));
+       $('.user-data').removeClass('hide');
+       mike.name = prompt('What would you like to name your player?');
+       // var newUser =  new  Player(playerName, "sticks", 1000);
+       // user.unshift(newUser);
+       // console.log(newUser.name, newUser.inventory, newUser.health, newUser.strength);
+       // return (newUser.name, newUser.inventory, newUser.health, newUser.strength);
+      $('.user-name').closest('div').find('span').text(mike.name);
+      $('.user-health').find('span').text(mike.health);
+      $('.user-strength').find('span').text(mike.strength);
+      $('.user-items').find('span').text(mike.inventory); 
+
+      $('#user-control').removeClass('hide');
+    });
+
+
+// var player =  new  Player(prompt('What would you like to name your player?'), "sticks", 1000);
+   // user.unshift(newUser);
+   // console.log(newUser.name, newUser.inventory, newUser.health, newUser.strength);
+   // return (newUser.name, newUser.inventory, newUser.health, newUser.strength);
+
+
+
 });
 
-$('#play').on('click', function(){
-	console.log(room1);
-	// $('.playground').after(room1);
-});
+
 
 // A game will be an instance of the World COnstructor
 
@@ -83,62 +166,62 @@ var snarlax = new Monster ('Snarlax', 50, 5);
 // i represents enemies
 // The container will hold the location of items and monsters
 
-var plan1 =
-  ["############################",
-   "#      #    #             ##",
-   "#                   x      #",
-   "#          #####           #",
-   "##   i     #   #    ##     #",
-   "###           ##     #     #",
-   "#           ###      #     #",
-   "#   ####                   #",
-   "#   ##        %            #",
-   "#    #                 ### #",
-   "#    #                     #",
-   "############################"];
+// var plan1 =
+//   ["############################",
+//    "#      #    #             ##",
+//    "#                   x      #",
+//    "#          #####           #",
+//    "##   i     #   #    ##     #",
+//    "###           ##     #     #",
+//    "#           ###      #     #",
+//    "#   ####                   #",
+//    "#   ##        %            #",
+//    "#    #                 ### #",
+//    "#    #                     #",
+//    "############################"];
 
-var plan2 =
-  ["############################",
-   "#                     ######",
-   "#    ***                **##",
-   "#   *##**         **  x  *##",
-   "#    ***     i    ##**    *#",
-   "#                 ##***   *#",
-   "#                 ##**    *#",
-   "#   i       #*            *#",
-   "#*          #**           *#",
-   "#***        ##**    x    **#",
-   "#*****     ###***       *###",
-   "############################"];
+// var plan2 =
+//   ["############################",
+//    "#                     ######",
+//    "#    ***                **##",
+//    "#   *##**         **  x  *##",
+//    "#    ***     i    ##**    *#",
+//    "#                 ##***   *#",
+//    "#                 ##**    *#",
+//    "#   i       #*            *#",
+//    "#*          #**           *#",
+//    "#***        ##**    x    **#",
+//    "#*****     ###***       *###",
+//    "############################"];
 
-var plan3 =
-  ["############################",
-   "#                      #####",
-   "#    ##                 ####",
-   "#   ####                  ##",
-   "#    ##       i            #",
-   "#                          #",
-   "#                ###       #",
-   "#               #####      #",
-   "#                ###       #",
-   "# %        ###        x    #",
-   "#        #######           #",
-   "############################"];
+// var plan3 =
+//   ["############################",
+//    "#                      #####",
+//    "#    ##                 ####",
+//    "#   ####                  ##",
+//    "#    ##       i            #",
+//    "#                          #",
+//    "#                ###       #",
+//    "#               #####      #",
+//    "#                ###       #",
+//    "# %        ###        x    #",
+//    "#        #######           #",
+//    "############################"];
 
 
-var plan4 =
-  ["############################",
-   "#                      #####",
-   "#    ##                 ####",
-   "#   ####     i            ##",
-   "#    ##                    #",
-   "#                          #",
-   "#      i         ###       #",
-   "#            %   #####     #",
-   "#                ###       #",
-   "# x        ###        x    #",
-   "#        #######           #",
-   "############################"];
+// var plan4 =
+//   ["############################",
+//    "#                      #####",
+//    "#    ##                 ####",
+//    "#   ####     i            ##",
+//    "#    ##                    #",
+//    "#                          #",
+//    "#      i         ###       #",
+//    "#            %   #####     #",
+//    "#                ###       #",
+//    "# x        ###        x    #",
+//    "#        #######           #",
+//    "############################"];
 
   var Point = function(x, y){
   		this.x = x;
@@ -157,6 +240,99 @@ var plan4 =
 
 
 
+
+var plan1=  ["####                    ####",
+             "#                          #",
+             "#                          #",
+             "                            ",
+             "                            ",
+             "                            ",
+             "                            ",
+             "                            ",
+             "                            ",
+             "#                          #",
+             "#                          #",
+             "####                    ####"];
+
+var plan2=  ["############################",
+             "#                          #",
+             "#                          #",
+             "                           #",
+             "                           #",
+             "                           #",
+             "                           #",
+             "                           #",
+             "                           #",
+             "#                          #",
+             "#                          #",
+             "############################"];
+
+var plan3=  ["####                    ####",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "############################"];
+
+var plan4=  ["############################",
+             "#                          #",
+             "#                          #",
+             "#                           ",
+             "#                           ",
+             "#                           ",
+             "#                           ",
+             "#                           ",
+             "#                           ",
+             "#                          #",
+             "#                          #",
+             "############################"];
+
+var plan5=  ["############################",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "#                          #",
+             "####                    ####"];
+
+// Mousetrap.bind(['right'])
+
+
+
+
+
+//none of the below functions created white space and adequate html elements
+
+// var planRender =  function(arr) {
+//     for (var i = 0; i < arr.length; i++) {
+//     arr[i] = "<div>" + arr[i] + "</div>";
+//     for (var j = 0; j < arr[i].length; j++) {
+//       if (arr[i][j] === ' ') {
+//         arr[i][j] == '&nbsp';
+//       };
+//     };
+//   };
+// }
+
+
+// testArr = [];
+// var testRender = function(str) {
+//    for (var j = 0; j < str.length; j++) {
+//    str[j].concat( "<span>" + str[j] + "</span>" );
+//    testArr.push(str[j]);
+//   };
+// }
 
 
 

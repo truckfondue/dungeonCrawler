@@ -19,6 +19,10 @@ a:hover {
   border: 1px solid #fff;
 }
 
+.hide {
+  display: none;
+}
+
 
 /*
  * Base structure

@@ -1,10 +1,11 @@
- ☐ Build 4 rooms (arrays, known as plans, that represent the contents of the rooms contents and boundaries)
-  ☐ Create gui
+ ✔ Build 4 rooms (arrays, known as plans, that represent the contents of the rooms contents and boundaries) @done (15-04-30 23:09)
+ ✔ Create gui @done (15-04-30 23:09)
+  ☐ Render rooms via scripting js functions that populate the DOM via a template.
+  ☐ Add player stats bar on the right side
+  ☐ Add Room details on the left side
   
 
   ☐ Write an inspect method that allows the Player to 'inspect' the contents of the room
 
-
  ☐ Give Player 'pickup', 'fight', 'use'
-
  ☐ 
